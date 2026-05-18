@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fotovansam — Fotografie</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D0B08;
+      --bg-card: #171410;
+      --bg-mid: #1A1612;
+      --orange: #C97B14;
+      --orange-hover: #E08B1A;
+      --orange-light: #D4831A;
+      --text: #F5F0E8;
+      --text-muted: #A89880;
+      --border: #2A2420;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .font-display { font-family: 'Cinzel', Georgia, serif; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13, 11, 8, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--orange); }
+
+    /* Buttons */
+    .btn-orange {
+      background-color: var(--orange);
+      color: #fff;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.15s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-orange:hover { background-color: var(--orange-hover); transform: translateY(-1px); }
+    .btn-orange:active { transform: translateY(0); }
+
+    .btn-outline {
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 11px 28px;
+      background: transparent;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { background-color: var(--orange); color: #fff; }
+
+    /* Hero */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('BannerPrio.png');
+      background-size: cover;
+      background-position: center top;
+      filter: brightness(0.55) saturate(0.7);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,11,8,1) 0%, rgba(13,11,8,0.6) 40%, rgba(13,11,8,0.2) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 0 0 0 0;
+    }
+
+    /* Stats bar */
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: #3A3028;
+    }
+
+    /* Section headers */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* Card */
+    .card-dark {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    /* Photo overlay */
+    .photo-overlay {
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,11,8,0.7) 0%, transparent 50%);
+    }
+    .photo-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .photo-overlay:hover img { transform: scale(1.04); }
+
+    /* Testimonial */
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 32px;
+    }
+
+    /* Input */
+    .form-input {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 300;
+      padding: 14px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus { border-color: var(--orange); }
+
+    /* Orange line accent */
+    .orange-line {
+      display: inline-block;
+      width: 40px;
+      height: 2px;
+      background: var(--orange);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    /* Feature row */
+    .feature-row {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .feature-row:first-child { border-top: 1px solid var(--border); }
+
+    /* Property card image */
+    .prop-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .prop-card:hover .prop-img { transform: scale(1.05); }
+    .prop-card { overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
+
+    /* Footer */
+    footer {
+      background: #090706;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive grid */
+    @media (min-width: 768px) {
+      .hero-text-inner { max-width: 620px; }
+    }
+
+    /* Responsive nav hide on small screens */
+    @media (max-width: 768px) {
+      .nav-wide { display: none !important; }
+    }
+
+    /* ── Elegant Carousel ── */
+    .c-wrap { position:relative; overflow:hidden; width:100%; }
+    .c-bg-wash { position:absolute; inset:0; pointer-events:none; transition:background 1s ease; z-index:0; }
+    .c-inner { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:flex-start; max-width:1280px; margin:0 auto; padding:60px 40px; }
+    .c-content { display:flex; flex-direction:column; padding-top:20px; }
+    .c-num { display:flex; align-items:center; gap:14px; margin-bottom:40px; opacity:0; transform:translateY(12px); transition:opacity .45s ease, transform .45s ease; }
+    .c-num.vis { opacity:1; transform:translateY(0); }
+    .c-num.out { opacity:0; transform:translateY(-12px); }
+    .c-num-line { display:inline-block; width:40px; height:1px; transition:background .5s ease; }
+    .c-num-text { font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); }
+    .c-title { font-family:'Cinzel',Georgia,serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:600; line-height:1.1; color:var(--text); margin-bottom:20px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .05s, transform .45s ease .05s; }
+    .c-title.vis { opacity:1; transform:translateY(0); }
+    .c-title.out { opacity:0; transform:translateY(-16px); }
+    .c-sub { font-size:.75rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; margin-bottom:28px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .1s, transform .45s ease .1s; }
+    .c-sub.vis { opacity:1; transform:translateY(0); }
+    .c-sub.out { opacity:0; transform:translateY(-16px); }
+    .c-desc { font-size:.95rem; color:var(--text-muted); line-height:1.9; margin-bottom:20px; max-width:440px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .15s, transform .45s ease .15s; }
+    .c-desc.vis { opacity:1; transform:translateY(0); }
+    .c-desc.out { opacity:0; transform:translateY(-16px); }
+    .c-detail { font-size:.85rem; color:var(--text-muted); line-height:1.8; max-width:440px; padding-top:20px; border-top:1px solid var(--border); margin-bottom:44px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .2s, transform .45s ease .2s; }
+    .c-detail.vis { opacity:1; transform:translateY(0); }
+    .c-detail.out { opacity:0; transform:translateY(-16px); }
+    .c-arrows { display:flex; gap:12px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .25s, transform .45s ease .25s; }
+    .c-arrows.vis { opacity:1; transform:translateY(0); }
+    .c-arrows.out { opacity:0; transform:translateY(-16px); }
+    .c-arrow { width:48px; height:48px; border:1px solid var(--border); background:transparent; color:var(--text-muted); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color .25s, color .25s; }
+    .c-arrow:hover { border-color:var(--orange); color:var(--orange); }
+    .c-image-wrap { position:relative; }
+    .c-frame { position:relative; overflow:hidden; aspect-ratio:3/4; opacity:0; transform:scale(.97); transition:opacity .45s ease, transform .45s ease; }
+    .c-frame.vis { opacity:1; transform:scale(1); }
+    .c-frame.out { opacity:0; transform:scale(1.02); }
+    .c-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+    .c-img-overlay { position:absolute; inset:0; transition:background .8s ease; }
+    .c-corner { position:absolute; width:24px; height:24px; border-style:solid; transition:border-color .5s ease; }
+    .c-corner-tl { top:-8px; left:-8px; border-width:1px 0 0 1px; }
+    .c-corner-br { bottom:-8px; right:-8px; border-width:0 1px 1px 0; }
+    .c-progress { position:relative; z-index:1; display:flex; max-width:1280px; margin:0 auto; padding:0 40px 60px; }
+    .c-progress-item { flex:1; background:transparent; border:none; cursor:pointer; padding:16px 0; text-align:left; border-top:1px solid var(--border); transition:border-color .3s; }
+    .c-progress-item:not(:last-child) { margin-right:20px; }
+    .c-progress-item.act { border-top-color:transparent; }
+    .c-prog-track { position:relative; height:1px; background:var(--border); margin-bottom:10px; overflow:hidden; }
+    .c-prog-fill { position:absolute; top:0; left:0; height:100%; width:0%; transition:width .05s linear; }
+    .c-prog-label { font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); transition:color .3s; }
+    .c-progress-item.act .c-prog-label { color:var(--text); }
+    @media (max-width:768px) {
+      .c-inner { grid-template-columns:1fr; gap:40px; padding:40px 24px; }
+      .c-frame { aspect-ratio:4/3; }
+      .c-progress { padding:0 24px 40px; flex-wrap:wrap; gap:8px; }
+      .c-progress-item { flex:calc(50% - 4px); min-width:0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div style="max-width:1280px; margin:0 auto; padding:0 40px; height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <!-- Logo -->
+      <a href="#" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
+        <div style="width:28px; height:28px; border:1.5px solid var(--orange); display:flex; align-items:center; justify-content:center;">
+          <div style="width:10px; height:10px; background:var(--orange);"></div>
+        </div>
+        <span class="font-display" style="font-size:0.95rem; font-weight:600; color:var(--text); letter-spacing:0.08em;">fotovansam</span>
+      </a>
+
+      <!-- Nav links -->
+      <div style="display:flex; align-items:center; gap:36px;">
+        <a href="#about" class="nav-link" style="display:none;" id="nav-full">Over ons</a>
+        <a href="#why" class="nav-link">Diensten</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#testimonials" class="nav-link">Recensies</a>
+        <a href="#contact" class="btn-orange" style="padding:10px 22px; font-size:0.7rem;">Neem contact op</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content" style="max-width:1280px; margin:0 auto; width:100%; padding:0 40px 80px;">
+
+      <!-- Label -->
+      <div style="display:flex; align-items:center; margin-bottom:20px;">
+        <span class="orange-line"></span>
+        <span class="section-label">Fotografie</span>
+      </div>
+
+      <!-- Heading -->
+      <div class="hero-text-inner">
+        <h1 class="font-display" style="font-size:clamp(2.2rem, 5vw, 4rem); font-weight:600; line-height:1.15; letter-spacing:0.02em; color:var(--text); margin-bottom:24px;">
+          fotovansam<br>
+          <span style="color:var(--orange);">Foto</span>grafie
+        </h1>
+        <p style="font-size:1rem; font-weight:300; color:var(--text-muted); max-width:520px; line-height:1.8; margin-bottom:36px;">
+          Newborn, zwangerschap, gezin. Sam legt elk kostbaar moment vast met rust, geduld en een scherp oog voor elk detail — foto's klaar binnen 7 dagen.
+        </p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="#contact" class="btn-orange">Plan een shoot</a>
+          <a href="#portfolio" class="btn-outline">Bekijk portfolio</a>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div style="display:flex; align-items:center; gap:40px; margin-top:60px; flex-wrap:wrap;">
+        <div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">85<span style="color:var(--orange);">+</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Blije klanten</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">5,0<span style="color:var(--orange);">★</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Google beoordeling</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">7<span style="color:var(--orange);"> dgn</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Gemiddelde levertijd</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">24<span style="color:var(--orange);">/7</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Bereikbaar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MEET THE PHOTOGRAPHER ═══ -->
+  <section id="about" style="background:var(--bg-mid); padding:100px 40px;">
+    <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+      <!-- Text -->
+      <div>
+        <span class="section-label" style="display:block; margin-bottom:16px;">Maak kennis met de fotograaf</span>
+        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:600; line-height:1.2; margin-bottom:28px;">Hoi, ik ben Sam —<br>Jouw fotograaf</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; margin-bottom:20px;">
+          Ik ben een spontane en rustige fotograaf met echt oog voor ieder detail. Ik ben gespecialiseerd in newborn-, zwangerschaps- en gezinsshoots, en neem altijd de tijd voor jou en je gezin.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; margin-bottom:36px;">
+          Door mijn kalmte, geduld en vriendelijkheid voelt iedereen — van pasgeboren baby tot drukke peuter — zich meteen op zijn gemak. De foto’s zijn gemiddeld binnen 7 dagen bewerkt en klaar.
+        </p>
+        <!-- Mini stats -->
+        <div style="display:flex; gap:40px; padding-top:28px; border-top:1px solid var(--border);">
+          <div>
+            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">85+</div>
+            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Reviews</div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">5,0★</div>
+            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Beoordeling</div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">7 dgn</div>
+            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Levertijd</div>
+          </div>
+        </div>
+      </div>
+      <!-- Photo -->
+      <div class="photo-overlay" style="aspect-ratio:3/4; border:1px solid var(--border);">
+        <img src="Fotografiesam.jpeg" alt="Portret fotograaf" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO COLLECTION ═══ -->
+  <section id="portfolio" style="background:var(--bg); padding:100px 40px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:60px;">
+        <span class="section-label" style="display:block; margin-bottom:16px;">Ons werk</span>
+        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2;">
+          Een persoonlijke selectie van<br>onze mooiste shoots
+        </h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+        <div class="prop-card">
+          <div style="overflow:hidden; aspect-ratio:3/4;">
+            <img class="prop-img" src="Images/Bruiloft1.jpg" alt="Trouwfoto" style="aspect-ratio:3/4;">
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange);">Newborn</div>
+              <div style="font-size:0.7rem; color:var(--text-muted);">2024</div>
+            </div>
+            <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Newbornshoot op locatie</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Almelo, Overijssel</div>
+          </div>
+        </div>
+
+        <div class="prop-card">
+          <div style="overflow:hidden; aspect-ratio:3/4;">
+            <img class="prop-img" src="Images/Bruiloft3.jpg" alt="Trouwfoto" style="aspect-ratio:3/4;">
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange);">Zwangerschap</div>
+              <div style="font-size:0.7rem; color:var(--text-muted);">2024</div>
+            </div>
+            <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Zwangerschapsshoot</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Almelo, Overijssel</div>
+          </div>
+        </div>
+
+        <div class="prop-card">
+          <div style="overflow:hidden; aspect-ratio:3/4;">
+            <img class="prop-img" src="Images/Bruiloft5.jpg" alt="Trouwfoto" style="aspect-ratio:3/4;">
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange);">Gezin</div>
+              <div style="font-size:0.7rem; color:var(--text-muted);">2024</div>
+            </div>
+            <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Gezinsshoot in de natuur</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Almelo &amp; omgeving</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <a href="#contact" class="btn-outline">Bekijk volledig portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT SETS US APART ═══ -->
+  <section style="background:var(--bg); padding-top:100px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 40px; text-align:center; margin-bottom:56px;">
+      <span class="section-label" style="display:block; margin-bottom:16px;">Wat ons onderscheidt</span>
+      <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2; max-width:560px; margin:0 auto;">
+        Waarom kiezen voor fotovansam?
+      </h2>
+    </div>
+    <div class="c-wrap" id="fokkert-carousel">
+      <div class="c-bg-wash" id="c-wash"></div>
+      <div class="c-inner">
+        <div class="c-content">
+          <div class="c-num" id="c-num">
+            <span class="c-num-line" id="c-num-line"></span>
+            <span class="c-num-text" id="c-num-text">01 / 04</span>
+          </div>
+          <h2 class="c-title" id="c-title">Geduld &amp; rust</h2>
+          <p class="c-sub" id="c-sub">Jouw moment, haar prioriteit</p>
+          <p class="c-desc" id="c-desc">Sam neemt écht de tijd voor jou en je gezin. Of je baby nu onrustig is of moeilijk in slaap te krijgen — ze gaat liefdevol en kalm te werk totdat alles perfect is.</p>
+          <p class="c-detail" id="c-detail">Klanten omschrijven haar als spontaan, rustig en met echt oog voor ieder detail. Geen haast, geen stress — alleen aandacht voor jou.</p>
+          <div class="c-arrows" id="c-arrows">
+            <button class="c-arrow" id="c-prev" aria-label="Vorige">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="c-arrow" id="c-next" aria-label="Volgende">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="c-image-wrap">
+          <div class="c-frame" id="c-frame">
+            <img id="c-img" src="Images/Bruiloft1.jpg" alt="">
+            <div class="c-img-overlay" id="c-img-overlay"></div>
+          </div>
+          <div class="c-corner c-corner-tl" id="c-corner-tl"></div>
+          <div class="c-corner c-corner-br" id="c-corner-br"></div>
+        </div>
+      </div>
+      <div class="c-progress" id="c-progress"></div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="testimonials" style="background:var(--bg-mid); padding:100px 40px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div style="margin-bottom:56px;">
+        <span class="section-label" style="display:block; margin-bottom:16px;">Wat koppels zeggen</span>
+        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2;">Ervaringen van klanten (5,0 — 85 reviews)</h2>
+      </div>
+
+      <!-- Testimonial cards -->
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-bottom:48px;">
+        <div class="testimonial-card">
+          <div style="display:flex; gap:4px; margin-bottom:20px;">
+            <span style="color:var(--orange); font-size:1rem;">★★★★★</span>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:24px; font-style:italic;">
+            "Wij hebben een newbornshoot gehad bij Sam met onze dochter. Onze dochter was erg onrustig en moeilijk in slaap te krijgen, maar Sam nam alle tijd en toonde enorm veel geduld. Ze ging heel liefdevol met onze dochter om."
+          </p>
+          <div>
+            <div style="font-size:0.85rem; font-weight:500;">Romy Landkroon</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Newbornshoot, 2024</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div style="display:flex; gap:4px; margin-bottom:20px;">
+            <span style="color:var(--orange); font-size:1rem;">★★★★★</span>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:24px; font-style:italic;">
+            "Zowel mijn zwangerschapsshoot als onze newbornshoot bij Sam mogen doen. Sam neemt echt de tijd voor je en je ziet dat ze haar werk met veel plezier en passie uitvoert. Door haar kalmte, geduld en vriendelijkheid stelde ze ons erg op ons gemak."
+          </p>
+          <div>
+            <div style="font-size:0.85rem; font-weight:500;">Kelly</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Zwangerschap &amp; newborn, 2024</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div style="display:flex; gap:4px; margin-bottom:20px;">
+            <span style="color:var(--orange); font-size:1rem;">★★★★★</span>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:24px; font-style:italic;">
+            "Wij hadden de eer om met onze dochter een newborn shoot te mogen doen bij Sam. Sam is erg kundig met baby's — ze zorgde ervoor dat onze dochter zich op haar gemak voelde. Ontzettend fijne ervaring!"
+          </p>
+          <div>
+            <div style="font-size:0.85rem; font-weight:500;">Floor</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Newborn workshop, 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google reviews link -->
+      <div style="text-align:center;">
+        <a href="https://www.instagram.com/fotovansam" target="_blank" rel="noopener"
+          style="display:inline-flex; align-items:center; gap:10px; padding:14px 32px; border:1px solid var(--orange); color:var(--orange); text-decoration:none; font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; transition:background 0.2s, color 0.2s;"
+          onmouseover="this.style.background='var(--orange)';this.style.color='var(--bg)'"
+          onmouseout="this.style.background='transparent';this.style.color='var(--orange)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Bekijk alle 85 reviews
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FULL IMAGE FEATURE ═══ -->
+  <section style="position:relative; height:640px; overflow:hidden;">
+    <img src="Images/Bruiloft3.jpg" alt="Trouwkoppel" style="width:100%; height:100%; object-fit:cover; object-position:60% 50%; filter:brightness(0.5);">
+    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(13,11,8,0.95) 0%, rgba(13,11,8,0.85) 22%, rgba(13,11,8,0.1) 44%, transparent 58%);"></div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center;">
+      <div style="max-width:1280px; margin:0 auto; width:100%; padding:0 40px;">
+        <span class="section-label" style="display:block; margin-bottom:16px;">De beleving</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem); font-weight:600; line-height:1.15; max-width:420px; margin-bottom:28px;">
+          Momenten vastgelegd,<br>voor <span style="color:var(--orange);">altijd</span>
+        </h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; max-width:380px; line-height:1.8; margin-bottom:36px;">
+          Van een newbornshoot thuis tot een gezinsshoot buiten — Sam is er. Met oog voor elk detail, de rust van een professional, en het hart voor jouw verhaal.
+        </p>
+        <a href="#contact" class="btn-orange">Plan een shoot</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" style="background:var(--bg-mid); padding:100px 40px;">
+    <div style="max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+      <!-- Left -->
+      <div>
+        <span class="section-label" style="display:block; margin-bottom:16px;">Neem contact op</span>
+        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2; margin-bottom:28px;">
+          Zullen we kennismaken?
+        </h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; margin-bottom:48px;">
+          Vertel me over jouw shoot. Stuur een bericht of bel gerust — Sam reageert snel en denkt graag met je mee over wat jij nodig hebt.
+        </p>
+        <!-- Contact info -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:40px; height:40px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--orange);">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006.29 6.29l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.18v1.74z"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Telefoon</div>
+              <div style="font-size:0.9rem;">06 49 01 46 58</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:40px; height:40px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--orange);">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">E-mail</div>
+              <div style="font-size:0.9rem;">Fotovansam@gmail.com</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:40px; height:40px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--orange);">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Locatie</div>
+              <div style="font-size:0.9rem;">Bedrijvenpark Twente 147o, 7602 KE Almelo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div>
+        <form style="display:flex; flex-direction:column; gap:16px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div>
+              <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Voornaam</label>
+              <input type="text" placeholder="Sophie" class="form-input">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Achternaam</label>
+              <input type="text" placeholder="Jansen" class="form-input">
+            </div>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">E-mailadres</label>
+            <input type="email" placeholder="sophie@voorbeeld.nl" class="form-input">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Type shoot</label>
+            <input type="text" placeholder="Newborn, zwangerschap, gezin..." class="form-input">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Gewenste datum</label>
+            <input type="date" class="form-input" style="color-scheme:dark;">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Bericht</label>
+            <textarea placeholder="Vertel ons over jullie trouwdag..." class="form-input" rows="4" style="resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn-orange" style="margin-top:8px; width:100%; text-align:center;">Verstuur aanvraag</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="padding:60px 40px 32px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <!-- Top row -->
+      <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; margin-bottom:60px; padding-bottom:40px; border-bottom:1px solid var(--border);">
+        <!-- Brand -->
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+            <div style="width:28px; height:28px; border:1.5px solid var(--orange); display:flex; align-items:center; justify-content:center;">
+              <div style="width:10px; height:10px; background:var(--orange);"></div>
+            </div>
+            <span class="font-display" style="font-size:0.95rem; font-weight:600; color:var(--text); letter-spacing:0.08em;">fotovansam</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.8; max-width:260px;">
+            Newborn-, zwangerschaps- en gezinsfotografie met rust, geduld en oog voor elk detail. Foto's binnen 7 dagen bewerkt en klaar. Almelo &amp; omgeving.
+          </p>
+          <!-- Social -->
+          <div style="display:flex; gap:12px; margin-top:24px;">
+            <a href="#" style="width:36px; height:36px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" style="width:36px; height:36px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" style="width:36px; height:36px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.22 8.22 0 004.86 1.56V6.78a4.85 4.85 0 01-1.09-.09z"/></svg>
+            </a>
+          </div>
+        </div>
+        <!-- Links 1 -->
+        <div>
+          <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:20px;">Diensten</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Newbornshoot</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Zwangerschapsshoot</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Gezinsshoot</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Workshop fotografie</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Shoot op locatie</a>
+          </div>
+        </div>
+        <!-- Links 2 -->
+        <div>
+          <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:20px;">Studio</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <a href="#about" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Over Sam</a>
+            <a href="#portfolio" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Portfolio</a>
+            <a href="#testimonials" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Recensies</a>
+            <a href="#contact" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Contact</a>
+          </div>
+        </div>
+        <!-- Links 3 -->
+        <div>
+          <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:20px;">Info</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Tarieven</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Veelgestelde vragen</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Blog</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Privacybeleid</a>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom row -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div style="font-size:0.78rem; color:var(--text-muted);">© 2024 fotovansam. Alle rechten voorbehouden.</div>
+        <div style="font-size:0.78rem; color:var(--text-muted);">Fotografie &middot; Almelo &amp; omgeving</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var slides=[
+      {title:'Geduld & rust',sub:'Jouw moment, haar prioriteit',desc:'Sam neemt écht de tijd voor jou en je gezin. Of je baby nu onrustig is of moeilijk in slaap te krijgen — ze gaat liefdevol en kalm te werk totdat alles perfect is.',detail:'Klanten omschrijven haar als spontaan, rustig en met echt oog voor ieder detail. Geen haast, geen stress — alleen aandacht voor jou.',accent:'#C97B14',img:'Images/Bruiloft1.jpg'},
+      {title:'Foto\'s binnen 7 dagen',sub:'Snel geleverd, prachtig bewerkt.',desc:'Na de shoot hoef je niet lang te wachten. Gemiddeld binnen 7 dagen zijn de foto\'s zorgvuldig bewerkt en klaar — zodat je er snel van kunt genieten en ze kunt delen.',detail:'"De bewerking en nalevering van de foto\'s was super snel." Dat zeggen onze klanten — en daar zijn we trots op.',accent:'#B8895A',img:'Images/Bruiloft2.jpg'},
+      {title:'Newborn expertise',sub:'Kundig met de allerkleinsten.',desc:'Sam heeft veel ervaring met pasgeborenen. Ze weet precies hoe ze babies veilig en comfortabel kan positioneren, en wacht geduldig op het juiste moment.',detail:'Onze klanten vertrouwen haar volledig met hun pasgeboren kindje — en dat vertrouwen maakt ze elke keer weer waar.',accent:'#D4A055',img:'Images/Bruiloft4.jpg'},
+      {title:'Op locatie of in studio',sub:'Flexibel, overal beschikbaar.',desc:'Sam werkt zowel op locatie als in een studioomgeving. Van jouw eigen huis tot een prachtige buitenlocatie in Almelo en omgeving — ze past zich aan jouw wensen aan.',detail:'Gevestigd op Bedrijvenpark Twente 147o in Almelo, maar ook bij jou thuis. 24/7 bereikbaar voor vragen en planning.',accent:'#C97B14',img:'Images/Bruiloft6.jpg'}
+    ];
+    var DURATION=6000,TRANS=400;
+    var cur=0,transitioning=false,progress=0,paused=false,timer=null,ptimer=null;
+    var elWash=document.getElementById('c-wash');
+    var elNum=document.getElementById('c-num');
+    var elNumLine=document.getElementById('c-num-line');
+    var elNumText=document.getElementById('c-num-text');
+    var elTitle=document.getElementById('c-title');
+    var elSub=document.getElementById('c-sub');
+    var elDesc=document.getElementById('c-desc');
+    var elDetail=document.getElementById('c-detail');
+    var elArrows=document.getElementById('c-arrows');
+    var elFrame=document.getElementById('c-frame');
+    var elImg=document.getElementById('c-img');
+    var elOverlay=document.getElementById('c-img-overlay');
+    var elTL=document.getElementById('c-corner-tl');
+    var elBR=document.getElementById('c-corner-br');
+    var elProg=document.getElementById('c-progress');
+    var elCar=document.getElementById('fokkert-carousel');
+    slides.forEach(function(s,i){
+      var btn=document.createElement('button');
+      btn.className='c-progress-item'+(i===0?' act':'');
+      btn.setAttribute('aria-label','Slide '+(i+1));
+      btn.innerHTML='<div class="c-prog-track"><div class="c-prog-fill" id="fill'+i+'"></div></div><span class="c-prog-label">'+s.title+'</span>';
+      btn.addEventListener('click',function(){goTo(i);});
+      elProg.appendChild(btn);
+    });
+    function setVis(show){
+      var els=[elNum,elTitle,elSub,elDesc,elDetail,elArrows,elFrame];
+      els.forEach(function(el){
+        if(show){el.classList.add('vis');el.classList.remove('out');}
+        else{el.classList.add('out');el.classList.remove('vis');}
+      });
+    }
+    function applySlide(idx){
+      var s=slides[idx];
+      elWash.style.background='radial-gradient(ellipse at 70% 50%,'+s.accent+'18 0%,transparent 70%)';
+      elNumText.textContent=(idx+1<10?'0'+(idx+1):''+(idx+1))+' / '+(slides.length<10?'0'+slides.length:''+slides.length);
+      elNumLine.style.background=s.accent;
+      elTitle.textContent=s.title;
+      elSub.textContent=s.sub;
+      elSub.style.color=s.accent;
+      elDesc.textContent=s.desc;
+      elDetail.textContent=s.detail;
+      elImg.src=s.img;elImg.alt=s.title;
+      elOverlay.style.background='linear-gradient(135deg,'+s.accent+'22 0%,transparent 50%)';
+      elTL.style.borderColor=s.accent;
+      elBR.style.borderColor=s.accent;
+      elProg.querySelectorAll('.c-progress-item').forEach(function(item,i){item.classList.toggle('act',i===idx);});
+    }
+    function goTo(idx){
+      if(transitioning||idx===cur)return;
+      transitioning=true;progress=0;setVis(false);
+      setTimeout(function(){
+        cur=idx;applySlide(idx);setVis(true);
+        setTimeout(function(){transitioning=false;},50);
+      },TRANS);
+      resetTimers();
+    }
+    function goNext(){goTo((cur+1)%slides.length);}
+    function goPrev(){goTo((cur-1+slides.length)%slides.length);}
+    function updateFill(){
+      slides.forEach(function(_,i){
+        var f=document.getElementById('fill'+i);
+        if(!f)return;
+        if(i===cur){f.style.width=progress+'%';f.style.backgroundColor=slides[cur].accent;}
+        else if(i<cur){f.style.width='100%';f.style.backgroundColor='';}
+        else{f.style.width='0%';}
+      });
+    }
+    function resetTimers(){
+      clearInterval(timer);clearInterval(ptimer);
+      progress=0;updateFill();
+      if(paused)return;
+      ptimer=setInterval(function(){progress=Math.min(100,progress+100/(DURATION/50));updateFill();},50);
+      timer=setInterval(goNext,DURATION);
+    }
+    document.getElementById('c-prev').addEventListener('click',goPrev);
+    document.getElementById('c-next').addEventListener('click',goNext);
+    elCar.addEventListener('mouseenter',function(){paused=true;resetTimers();});
+    elCar.addEventListener('mouseleave',function(){paused=false;resetTimers();});
+    var tx=0;
+    elCar.addEventListener('touchstart',function(e){tx=e.targetTouches[0].clientX;});
+    elCar.addEventListener('touchend',function(e){var d=tx-e.changedTouches[0].clientX;if(Math.abs(d)>60){d>0?goNext():goPrev();}});
+    applySlide(0);setVis(true);resetTimers();
+  })();
+  </script>
+</body>
+</html>
