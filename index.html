@@ -415,6 +415,9 @@
       /* Portfolio card images: landscape on mobile for less vertical scroll */
       .prop-card > div:first-child { aspect-ratio: 4/3 !important; }
       .prop-img { aspect-ratio: 4/3 !important; height: auto !important; }
+      #newborn-foto { object-position: center 50% !important; }
+      #zwanger-foto { object-position: center 50% !important; }
+      #gezin-foto { object-position: center 90% !important; }
 
       /* Portfolio section CTA button: full-width */
       .portfolio-section > div > div:last-child { width: 100% !important; }
@@ -607,7 +610,7 @@
       <div class="portfolio-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
         <div class="prop-card">
           <div style="overflow:hidden; aspect-ratio:3/4;">
-            <img class="prop-img" src="Images/Bruiloft1.jpg" alt="Newbornshoot" loading="lazy" style="aspect-ratio:3/4;">
+            <img class="prop-img" id="newborn-foto" src="Images/Bruiloft1.jpg" alt="Newbornshoot" loading="lazy" style="aspect-ratio:3/4;">
           </div>
           <div style="padding:24px;">
             <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
@@ -621,7 +624,7 @@
 
         <div class="prop-card">
           <div style="overflow:hidden; aspect-ratio:3/4;">
-            <img class="prop-img" src="Images/Bruiloft3.jpg" alt="Zwangerschapsshoot" loading="lazy" style="aspect-ratio:3/4; object-position: center 25%;">
+            <img class="prop-img" id="zwanger-foto" src="Images/Bruiloft3.jpg" alt="Zwangerschapsshoot" loading="lazy" style="aspect-ratio:3/4; object-position: center 25%;">
           </div>
           <div style="padding:24px;">
             <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
@@ -635,7 +638,7 @@
 
         <div class="prop-card">
           <div style="overflow:hidden; aspect-ratio:3/4;">
-            <img class="prop-img" src="Images/Bruiloft5.jpg" alt="Gezinsshoot" loading="lazy" style="aspect-ratio:3/4; object-position: center 70%;">
+            <img class="prop-img" id="gezin-foto" src="Images/Bruiloft5.jpg" alt="Gezinsshoot" loading="lazy" style="aspect-ratio:3/4; object-position: center 70%;">
           </div>
           <div style="padding:24px;">
             <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
