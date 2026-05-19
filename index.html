@@ -3,22 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fotovansam — Fotografie</title>
+  <title>Sweet Seasons Fotografie — Lory van de Fliert | Fotografe Harderwijk</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Ongedwongen fotoshoots voor gezinnen, newborns, zwangere vrouwen en kinderen in Harderwijk. Lory van de Fliert | Sweet Seasons Fotografie. Warme, sprookjesachtige nabewerking op locatie. ★5,0 Google.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://portfoliosample-orcin.vercel.app">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfoliosample-orcin.vercel.app">
+  <meta property="og:title" content="Sweet Seasons Fotografie — Lory van de Fliert | Fotografe Harderwijk">
+  <meta property="og:description" content="Ongedwongen fotoshoots voor gezinnen, newborns, zwangere vrouwen en kinderen in Harderwijk. Warme, sprookjesachtige nabewerking op locatie. ★5,0 Google.">
+  <meta property="og:image" content="https://portfoliosample-orcin.vercel.app/ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png">
+  <meta property="og:site_name" content="Sweet Seasons Fotografie">
+  <meta property="og:locale" content="nl_NL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sweet Seasons Fotografie — Lory van de Fliert | Fotografe Harderwijk">
+  <meta name="twitter:description" content="Ongedwongen fotoshoots voor gezinnen, newborns, zwangere vrouwen en kinderen in Harderwijk. Warme, sprookjesachtige nabewerking op locatie. ★5,0 Google.">
+  <meta name="twitter:image" content="https://portfoliosample-orcin.vercel.app/ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png">
+
+  <!-- LCP preload voor hero achtergrond -->
+  <link rel="preload" as="image" href="ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png" fetchpriority="high">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0D0B08;
-      --bg-card: #171410;
-      --bg-mid: #1A1612;
-      --orange: #C97B14;
-      --orange-hover: #E08B1A;
-      --orange-light: #D4831A;
-      --text: #F5F0E8;
-      --text-muted: #A89880;
-      --border: #2A2420;
+      --bg:          #FFFAF8;
+      --bg-card:     #FFF5F5;
+      --bg-mid:      #FFF0EE;
+      --pink:        #D4607A;
+      --pink-hover:  #BC4A65;
+      --pink-light:  #E8728A;
+      --text:        #2D1820;
+      --text-muted:  #8C5D67;
+      --border:      #F0D5D8;
+      --orange:      #D4607A;
+      --orange-hover: #BC4A65;
+      --orange-light: #E8728A;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,13 +56,13 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-weight: 300;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
-    .font-display { font-family: 'Cinzel', Georgia, serif; }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 4px; }
@@ -46,7 +74,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(13, 11, 8, 0.95);
+      background: rgba(255, 250, 248, 0.95);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
@@ -61,17 +89,17 @@
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .nav-link:hover { color: var(--orange); }
+    .nav-link:hover { color: var(--pink); }
 
     /* Buttons */
     .btn-orange {
-      background-color: var(--orange);
+      background-color: var(--pink);
       color: #fff;
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: none;
       padding: 12px 28px;
       border: none;
       cursor: pointer;
@@ -84,21 +112,21 @@
       -webkit-tap-highlight-color: transparent;
       min-height: 44px;
       line-height: 1;
-      border-radius: 6px;
-      box-shadow: 0 2px 16px rgba(201,123,20,0.28), 0 0 0 0 rgba(201,123,20,0);
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(212,96,122,0.30);
     }
-    .btn-orange:hover { background-color: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(201,123,20,0.55), 0 0 12px rgba(201,123,20,0.25); }
+    .btn-orange:hover { background-color: var(--pink-hover); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(212,96,122,0.45); }
     .btn-orange:active { transform: translateY(0); }
 
     .btn-outline {
-      border: 1px solid var(--orange);
-      color: var(--orange);
-      font-family: 'Josefin Sans', sans-serif;
+      border: 2px solid var(--pink);
+      color: var(--pink);
+      font-family: 'Nunito', sans-serif;
       font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 11px 28px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: none;
+      padding: 10px 28px;
       background: transparent;
       cursor: pointer;
       transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
@@ -110,9 +138,9 @@
       -webkit-tap-highlight-color: transparent;
       min-height: 44px;
       line-height: 1;
-      border-radius: 6px;
+      border-radius: 999px;
     }
-    .btn-outline:hover { background-color: var(--orange); color: #fff; box-shadow: 0 6px 28px rgba(201,123,20,0.55), 0 0 12px rgba(201,123,20,0.25); }
+    .btn-outline:hover { background-color: var(--pink); color: #fff; box-shadow: 0 8px 32px rgba(212,96,122,0.45); }
 
     /* Hero */
     .hero-section {
@@ -127,16 +155,16 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('BannerPrio.png');
+      background-image: url('ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png');
       background-size: cover;
-      background-position: center top;
+      background-position: 80% top;
       filter: brightness(0.55) saturate(0.7);
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(13,11,8,1) 0%, rgba(13,11,8,0.6) 40%, rgba(13,11,8,0.2) 100%);
+      background: linear-gradient(to top, rgba(45,24,32,0.88) 0%, rgba(45,24,32,0.55) 40%, rgba(45,24,32,0.18) 100%);
     }
 
     .hero-content {
@@ -148,16 +176,16 @@
     .stat-divider {
       width: 1px;
       height: 40px;
-      background: #3A3028;
+      background: var(--border);
     }
 
     /* Section headers */
     .section-label {
-      font-size: 0.75rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--orange);
+      letter-spacing: 0.08em;
+      text-transform: none;
+      color: var(--pink);
     }
 
     /* Card */
@@ -175,7 +203,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(13,11,8,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(45,24,32,0.6) 0%, transparent 50%);
     }
     .photo-overlay img {
       width: 100%;
@@ -190,15 +218,16 @@
     .testimonial-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 32px;
     }
 
     /* Input */
     .form-input {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: #fff;
+      border: 1.5px solid var(--border);
       color: var(--text);
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 0.875rem;
       font-weight: 300;
       padding: 14px 16px;
@@ -206,16 +235,17 @@
       outline: none;
       transition: border-color 0.2s ease;
       min-height: 44px;
+      border-radius: 12px;
     }
     .form-input::placeholder { color: var(--text-muted); }
-    .form-input:focus { border-color: var(--orange); }
+    .form-input:focus { border-color: var(--pink); }
 
-    /* Orange line accent */
+    /* Pink line accent */
     .orange-line {
       display: inline-block;
       width: 40px;
       height: 2px;
-      background: var(--orange);
+      background: var(--pink);
       vertical-align: middle;
       margin-right: 12px;
     }
@@ -239,11 +269,11 @@
       transition: transform 0.5s ease;
     }
     .prop-card:hover .prop-img { transform: scale(1.05); }
-    .prop-card { overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
+    .prop-card { overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 
     /* Footer */
     footer {
-      background: #090706;
+      background: #FFF0EE;
       border-top: 1px solid var(--border);
     }
 
@@ -262,7 +292,7 @@
     .c-num.out { opacity:0; transform:translateY(-12px); }
     .c-num-line { display:inline-block; width:40px; height:1px; transition:background .5s ease; }
     .c-num-text { font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); }
-    .c-title { font-family:'Cinzel',Georgia,serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:600; line-height:1.1; color:var(--text); margin-bottom:20px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .05s, transform .45s ease .05s; }
+    .c-title { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:600; line-height:1.1; color:var(--text); margin-bottom:20px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .05s, transform .45s ease .05s; }
     .c-title.vis { opacity:1; transform:translateY(0); }
     .c-title.out { opacity:0; transform:translateY(-16px); }
     .c-sub { font-size:.75rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; margin-bottom:28px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .1s, transform .45s ease .1s; }
@@ -277,8 +307,8 @@
     .c-arrows { display:flex; gap:12px; opacity:0; transform:translateY(16px); transition:opacity .45s ease .25s, transform .45s ease .25s; grid-column:1; grid-row:2; align-self:start; }
     .c-arrows.vis { opacity:1; transform:translateY(0); }
     .c-arrows.out { opacity:0; transform:translateY(-16px); }
-    .c-arrow { width:48px; height:48px; border:1px solid var(--border); background:transparent; color:var(--text-muted); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color .25s, color .25s; touch-action:manipulation; border-radius:6px; }
-    .c-arrow:hover { border-color:var(--orange); color:var(--orange); }
+    .c-arrow { width:48px; height:48px; border:2px solid var(--border); background:transparent; color:var(--text-muted); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color .25s, color .25s; touch-action:manipulation; border-radius:999px; }
+    .c-arrow:hover { border-color:var(--pink); color:var(--pink); }
     .c-image-wrap { position:relative; grid-column:2; grid-row:1/3; }
     .c-frame { position:relative; overflow:hidden; aspect-ratio:3/4; opacity:0; transform:scale(.97); transition:opacity .45s ease, transform .45s ease; }
     .c-frame.vis { opacity:1; transform:scale(1); }
@@ -330,7 +360,7 @@
       top: 68px;
       left: 0;
       right: 0;
-      background: rgba(13, 11, 8, 0.98);
+      background: rgba(255, 250, 248, 0.98);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -360,7 +390,7 @@
       align-items: center;
       min-height: 44px;
     }
-    .nav-mobile-link:hover, .nav-mobile-link:focus { color: var(--orange); outline: none; }
+    .nav-mobile-link:hover, .nav-mobile-link:focus { color: var(--pink); outline: none; }
 
     /* ── Mobile breakpoints ── */
     @media (max-width: 767px) {
@@ -380,7 +410,7 @@
       .portfolio-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
       .portfolio-header { margin-bottom: 36px !important; }
 
-      .hero-bg { background-image: url('Images/BannerPrio.png'); background-position: center top; }
+      .hero-bg { background-image: url('ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png'); background-position: 30% top; }
 
       .why-section { padding-top: 60px !important; }
       .why-header { padding: 0 20px !important; margin-bottom: 36px !important; }
@@ -397,7 +427,7 @@
       .testimonials-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
 
       .feature-section { height: auto !important; min-height: 500px !important; padding: 80px 0 !important; }
-      .feature-overlay { background: linear-gradient(to top, rgba(13,11,8,0.98) 0%, rgba(13,11,8,0.88) 50%, rgba(13,11,8,0.45) 100%) !important; }
+      .feature-overlay { background: linear-gradient(to top, rgba(45,24,32,0.98) 0%, rgba(45,24,32,0.88) 50%, rgba(45,24,32,0.45) 100%) !important; }
       .feature-inner { padding: 0 24px !important; text-align: center !important; }
       .feature-inner h2 { max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
       .feature-inner p { max-width: 100% !important; }
@@ -475,10 +505,10 @@
     <div class="nav-container" style="max-width:1280px; margin:0 auto; padding:0 40px; height:68px; display:flex; align-items:center; justify-content:space-between;">
       <!-- Logo -->
       <a href="#" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
-        <div style="width:28px; height:28px; border:1.5px solid var(--orange); display:flex; align-items:center; justify-content:center;">
-          <div style="width:10px; height:10px; background:var(--orange);"></div>
+        <div style="width:28px; height:28px; border:1.5px solid var(--pink); border-radius:6px; display:flex; align-items:center; justify-content:center;">
+          <div style="width:10px; height:10px; background:var(--pink); border-radius:2px;"></div>
         </div>
-        <span class="font-display" style="font-size:0.95rem; font-weight:600; color:var(--text); letter-spacing:0.08em;">fotovansam</span>
+        <span class="font-display" style="font-size:0.95rem; font-weight:600; color:var(--text); letter-spacing:0.08em;">Sweet Seasons</span>
       </a>
 
       <!-- Nav links (desktop) -->
@@ -523,12 +553,12 @@
 
       <!-- Heading -->
       <div class="hero-text-inner">
-        <h1 class="font-display" style="font-size:clamp(2.2rem, 5vw, 4rem); font-weight:600; line-height:1.15; letter-spacing:0.02em; color:var(--text); margin-bottom:24px;">
-          fotovansam<br>
-          <span style="color:var(--orange);">Foto</span>grafie
+        <h1 class="font-display" style="font-size:clamp(2.2rem, 5vw, 4rem); font-weight:600; line-height:1.15; letter-spacing:0.02em; color:#FFF5F5; margin-bottom:24px;">
+          Sweet Seasons<br>
+          <span style="color:var(--pink-light);">Foto</span>grafie
         </h1>
-        <p style="font-size:1rem; font-weight:300; color:var(--text-muted); max-width:520px; line-height:1.8; margin-bottom:36px;">
-          Newborn, zwangerschap, gezin. Sam legt elk kostbaar moment vast met rust, geduld en een scherp oog voor elk detail — foto's klaar binnen 7 dagen.
+        <p style="font-size:1rem; font-weight:300; color:rgba(255,245,245,0.75); max-width:520px; line-height:1.8; margin-bottom:36px;">
+          Gezin, newborn, zwangerschap, kinderen. Lory legt elk kostbaar moment vast met een ongedwongen stijl, warme sfeer en een sprookjesachtige nabewerking — in alle seizoenen.
         </p>
         <div style="display:flex; gap:16px; flex-wrap:wrap;">
           <a href="#contact" class="btn-orange">Plan een shoot</a>
@@ -539,23 +569,23 @@
       <!-- Stats bar -->
       <div class="hero-stats" style="display:flex; align-items:center; gap:40px; margin-top:60px; flex-wrap:wrap;">
         <div>
-          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">85<span style="color:var(--orange);">+</span></div>
-          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Blije klanten</div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:#FFF5F5;">5,0<span style="color:var(--pink-light);">★</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,245,245,0.65); margin-top:4px;">Google beoordeling</div>
         </div>
         <div class="stat-divider"></div>
         <div>
-          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">5,0<span style="color:var(--orange);">★</span></div>
-          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Google beoordeling</div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:#FFF5F5;">7<span style="color:var(--pink-light);">★</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,245,245,0.65); margin-top:4px;">Google reviews</div>
         </div>
         <div class="stat-divider"></div>
         <div>
-          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">7<span style="color:var(--orange);"> dgn</span></div>
-          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Gemiddelde levertijd</div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:#FFF5F5;">4<span style="color:var(--pink-light);">★</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,245,245,0.65); margin-top:4px;">Seizoenen</div>
         </div>
         <div class="stat-divider"></div>
         <div>
-          <div class="font-display" style="font-size:2rem; font-weight:600; color:var(--text);">24<span style="color:var(--orange);">/7</span></div>
-          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Bereikbaar</div>
+          <div class="font-display" style="font-size:2rem; font-weight:600; color:#FFF5F5;">100<span style="color:var(--pink-light);">%</span></div>
+          <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,245,245,0.65); margin-top:4px;">Op locatie</div>
         </div>
       </div>
     </div>
@@ -567,32 +597,32 @@
       <!-- Text -->
       <div>
         <span class="section-label" style="display:block; margin-bottom:16px;">Maak kennis met de fotograaf</span>
-        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:600; line-height:1.2; margin-bottom:28px;">Hoi, ik ben Sam —<br>Jouw fotograaf</h2>
+        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.8rem); font-weight:600; line-height:1.2; margin-bottom:28px;">Hoi, ik ben Lory —<br>Jouw fotograaf</h2>
         <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; margin-bottom:20px;">
-          Ik ben een spontane en rustige fotograaf met echt oog voor ieder detail. Ik ben gespecialiseerd in newborn-, zwangerschaps- en gezinsshoots, en neem altijd de tijd voor jou en je gezin.
+          Ik ben een vrolijke, gezellige fotografe die ongedwongen en sfeervolle fotoshoots maakt op mooie locaties in de natuur. Ik ben gespecialiseerd in gezins-, newborn-, zwangerschaps- en kindershoots, en neem altijd de tijd voor jou en je gezin.
         </p>
         <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; margin-bottom:36px;">
-          Door mijn kalmte, geduld en vriendelijkheid voelt iedereen — van pasgeboren baby tot drukke peuter — zich meteen op zijn gemak. De foto's zijn gemiddeld binnen 7 dagen bewerkt en klaar.
+          Klanten omschrijven mijn stijl als sprookjesachtig en warm. De kinderen voelen zich op hun gemak, de sfeer is ontspannen — en het resultaat is prachtig. Gevestigd in Harderwijk en actief door heel de regio.
         </p>
         <!-- Mini stats -->
         <div style="display:flex; gap:40px; padding-top:28px; border-top:1px solid var(--border); flex-wrap:wrap;">
           <div>
-            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">85+</div>
-            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Reviews</div>
+            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">7</div>
+            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Google reviews</div>
           </div>
           <div>
             <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">5,0★</div>
             <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Beoordeling</div>
           </div>
           <div>
-            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">7 dgn</div>
-            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Levertijd</div>
+            <div class="font-display" style="font-size:1.6rem; font-weight:600; color:var(--orange);">LGBTQ+</div>
+            <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:4px;">Vriendelijk</div>
           </div>
         </div>
       </div>
       <!-- Photo -->
       <div class="about-photo photo-overlay" style="aspect-ratio:3/4; border:1px solid var(--border);">
-        <img src="Fotografiesam.jpeg" alt="Portret fotograaf" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        <img src="ImgSweetSeasons/lory-van-de-fliert-fotografe-harderwijk.png" alt="Lory van de Fliert — fotografe Sweet Seasons Fotografie Harderwijk" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
       </div>
     </div>
   </section>
@@ -603,14 +633,14 @@
       <div class="portfolio-header" style="text-align:center; margin-bottom:60px;">
         <span class="section-label" style="display:block; margin-bottom:16px;">Ons werk</span>
         <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2;">
-          Een persoonlijke selectie van<br>onze mooiste shoots
+          Een persoonlijke selectie van<br>mijn mooiste shoots
         </h2>
       </div>
 
       <div class="portfolio-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
         <div class="prop-card">
           <div style="overflow:hidden; aspect-ratio:3/4;">
-            <img class="prop-img" id="newborn-foto" src="Images/Bruiloft1.jpg" alt="Newbornshoot" loading="lazy" style="aspect-ratio:3/4;">
+            <img class="prop-img" id="newborn-foto" src="ImgSweetSeasons/newbornshoot-fotograaf-harderwijk.png" alt="Newbornshoot op locatie in Harderwijk door Sweet Seasons Fotografie" loading="lazy" style="aspect-ratio:3/4;">
           </div>
           <div style="padding:24px;">
             <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
@@ -618,13 +648,13 @@
               <div style="font-size:0.7rem; color:var(--text-muted);">2024</div>
             </div>
             <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Newbornshoot op locatie</div>
-            <div style="font-size:0.8rem; color:var(--text-muted);">Almelo, Overijssel</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Harderwijk & omgeving</div>
           </div>
         </div>
 
         <div class="prop-card">
           <div style="overflow:hidden; aspect-ratio:3/4;">
-            <img class="prop-img" id="zwanger-foto" src="Images/Bruiloft3.jpg" alt="Zwangerschapsshoot" loading="lazy" style="aspect-ratio:3/4; object-position: center 25%;">
+            <img class="prop-img" id="zwanger-foto" src="ImgSweetSeasons/zwangerschapsshoot-fotograaf-harderwijk.png" alt="Zwangerschapsshoot op locatie Harderwijk — Sweet Seasons Fotografie" loading="lazy" style="aspect-ratio:3/4; object-position: center 25%;">
           </div>
           <div style="padding:24px;">
             <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
@@ -632,13 +662,13 @@
               <div style="font-size:0.7rem; color:var(--text-muted);">2024</div>
             </div>
             <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Zwangerschapsshoot</div>
-            <div style="font-size:0.8rem; color:var(--text-muted);">Almelo, Overijssel</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Harderwijk & omgeving</div>
           </div>
         </div>
 
         <div class="prop-card">
           <div style="overflow:hidden; aspect-ratio:3/4;">
-            <img class="prop-img" id="gezin-foto" src="Images/Bruiloft5.jpg" alt="Gezinsshoot" loading="lazy" style="aspect-ratio:3/4; object-position: center 70%;">
+            <img class="prop-img" id="gezin-foto" src="ImgSweetSeasons/gezinsshoot-alle-seizoenen-harderwijk.png" alt="Gezinsshoot in de natuur — Sweet Seasons Fotografie Harderwijk" loading="lazy" style="aspect-ratio:3/4; object-position: center 70%;">
           </div>
           <div style="padding:24px;">
             <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:10px;">
@@ -646,7 +676,7 @@
               <div style="font-size:0.7rem; color:var(--text-muted);">2024</div>
             </div>
             <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Gezinsshoot in de natuur</div>
-            <div style="font-size:0.8rem; color:var(--text-muted);">Almelo &amp; omgeving</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Harderwijk &amp; omgeving</div>
           </div>
         </div>
       </div>
@@ -658,11 +688,11 @@
   </section>
 
   <!-- ═══ WHAT SETS US APART ═══ -->
-  <section id="why" class="why-section" style="background:var(--bg); padding-top:100px;">
+  <section id="why" class="why-section" style="background:var(--bg-mid); padding-top:100px;">
     <div class="why-header" style="max-width:1280px; margin:0 auto; padding:0 40px; text-align:center; margin-bottom:56px;">
       <span class="section-label" style="display:block; margin-bottom:16px;">Wat ons onderscheidt</span>
       <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2; max-width:560px; margin:0 auto;">
-        Waarom kiezen voor fotovansam?
+        Waarom kiezen voor Sweet Seasons Fotografie?
       </h2>
     </div>
     <div class="c-wrap" id="fokkert-carousel">
@@ -673,14 +703,14 @@
             <span class="c-num-line" id="c-num-line"></span>
             <span class="c-num-text" id="c-num-text">01 / 04</span>
           </div>
-          <h2 class="c-title" id="c-title">Geduld &amp; rust</h2>
-          <p class="c-sub" id="c-sub">Jouw moment, haar prioriteit</p>
-          <p class="c-desc" id="c-desc">Sam neemt écht de tijd voor jou en je gezin. Of je baby nu onrustig is of moeilijk in slaap te krijgen — ze gaat liefdevol en kalm te werk totdat alles perfect is.</p>
-          <p class="c-detail" id="c-detail">Klanten omschrijven haar als spontaan, rustig en met echt oog voor ieder detail. Geen haast, geen stress — alleen aandacht voor jou.</p>
+          <h2 class="c-title" id="c-title">Geduld &amp; warmte</h2>
+          <p class="c-sub" id="c-sub">De kinderen voelen zich op hun gemak</p>
+          <p class="c-desc" id="c-desc">Lory neemt écht de tijd voor jou en je gezin. De kinderen voelen zich op hun gemak, de sfeer is ontspannen — en dat zie je terug in elk beeld.</p>
+          <p class="c-detail" id="c-detail">"Lory neemt de tijd, de kinderen voelde zich op hun gemak en de foto's zijn echt prachtig!" — Rebecca Bremer</p>
         </div>
         <div class="c-image-wrap">
           <div class="c-frame" id="c-frame">
-            <img id="c-img" src="Images/Bruiloft1.jpg" alt="" loading="lazy">
+            <img id="c-img" src="ImgSweetSeasons/newbornshoot-fotograaf-harderwijk.png" alt="Fotoserie Sweet Seasons Fotografie Harderwijk" loading="lazy">
             <div class="c-img-overlay" id="c-img-overlay"></div>
           </div>
           <div class="c-corner c-corner-tl" id="c-corner-tl"></div>
@@ -700,11 +730,11 @@
   </section>
 
   <!-- ═══ TESTIMONIALS ═══ -->
-  <section id="testimonials" class="testimonials-section" style="background:var(--bg-mid); padding:100px 40px;">
+  <section id="testimonials" class="testimonials-section" style="background:var(--bg); padding:100px 40px;">
     <div style="max-width:1280px; margin:0 auto;">
       <div style="margin-bottom:56px;">
-        <span class="section-label" style="display:block; margin-bottom:16px;">Wat koppels zeggen</span>
-        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2;">Ervaringen van klanten (5,0 — 85 reviews)</h2>
+        <span class="section-label" style="display:block; margin-bottom:16px;">Wat klanten zeggen</span>
+        <h2 class="font-display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; line-height:1.2;">Ervaringen van klanten (5,0 — 7 Google reviews)</h2>
       </div>
 
       <!-- Testimonial cards -->
@@ -714,11 +744,11 @@
             <span style="color:var(--orange); font-size:1rem;">★★★★★</span>
           </div>
           <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:24px; font-style:italic;">
-            "Wij hebben een newbornshoot gehad bij Sam met onze dochter. Onze dochter was erg onrustig en moeilijk in slaap te krijgen, maar Sam nam alle tijd en toonde enorm veel geduld. Ze ging heel liefdevol met onze dochter om."
+            "Lory neemt de tijd, de kinderen voelde zich op hun gemak en de foto's zijn echt prachtig! Wij hadden een portret shoot buiten bij een bloesem boom en Lory had zelf een prachtige locatie gevonden."
           </p>
           <div>
-            <div style="font-size:0.85rem; font-weight:500;">Romy Landkroon</div>
-            <div style="font-size:0.75rem; color:var(--text-muted);">Newbornshoot, 2024</div>
+            <div style="font-size:0.85rem; font-weight:500;">Rebecca Bremer</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Portretshoot buiten</div>
           </div>
         </div>
 
@@ -727,11 +757,11 @@
             <span style="color:var(--orange); font-size:1rem;">★★★★★</span>
           </div>
           <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:24px; font-style:italic;">
-            "Zowel mijn zwangerschapsshoot als onze newbornshoot bij Sam mogen doen. Sam neemt echt de tijd voor je en je ziet dat ze haar werk met veel plezier en passie uitvoert. Door haar kalmte, geduld en vriendelijkheid stelde ze ons erg op ons gemak."
+            "Lieve fotografe die alle tijd neemt om mooie foto's te maken. Nabewerking met een prachtige, sprookjesachtige sfeer. Enorm blij met de shoot en het resultaat."
           </p>
           <div>
-            <div style="font-size:0.85rem; font-weight:500;">Kelly</div>
-            <div style="font-size:0.75rem; color:var(--text-muted);">Zwangerschap &amp; newborn, 2024</div>
+            <div style="font-size:0.85rem; font-weight:500;">Shirley D</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Fotoshoot</div>
           </div>
         </div>
 
@@ -740,23 +770,23 @@
             <span style="color:var(--orange); font-size:1rem;">★★★★★</span>
           </div>
           <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:24px; font-style:italic;">
-            "Wij hadden de eer om met onze dochter een newborn shoot te mogen doen bij Sam. Sam is erg kundig met baby's — ze zorgde ervoor dat onze dochter zich op haar gemak voelde. Ontzettend fijne ervaring!"
+            "Top fotograaf, wij voelde ons helemaal op ons gemak. Prachtige foto's, grote aanrader!"
           </p>
           <div>
-            <div style="font-size:0.85rem; font-weight:500;">Floor</div>
-            <div style="font-size:0.75rem; color:var(--text-muted);">Newborn workshop, 2024</div>
+            <div style="font-size:0.85rem; font-weight:500;">Danielle Andringa</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Fotoshoot</div>
           </div>
         </div>
       </div>
 
       <!-- Google reviews link -->
       <div style="text-align:center;">
-        <a href="https://www.instagram.com/fotovansam" target="_blank" rel="noopener" class="reviews-btn"
-          style="display:inline-flex; align-items:center; gap:10px; padding:14px 32px; border:1px solid var(--orange); color:var(--orange); text-decoration:none; font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; transition:background 0.2s, color 0.2s, box-shadow 0.25s; min-height:44px; touch-action:manipulation; border-radius:6px;"
-          onmouseover="this.style.background='var(--orange)';this.style.color='var(--bg)'"
-          onmouseout="this.style.background='transparent';this.style.color='var(--orange)'">
+        <a href="https://www.instagram.com/sweet_seasons_fotografie" target="_blank" rel="noopener" class="reviews-btn"
+          style="display:inline-flex; align-items:center; gap:10px; padding:14px 32px; border:2px solid var(--pink); color:var(--pink); text-decoration:none; font-size:0.75rem; letter-spacing:0.06em; text-transform:none; font-weight:600; transition:background 0.2s, color 0.2s, box-shadow 0.25s; min-height:44px; touch-action:manipulation; border-radius:999px;"
+          onmouseover="this.style.background='var(--pink)';this.style.color='#fff'"
+          onmouseout="this.style.background='transparent';this.style.color='var(--pink)'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Bekijk alle 85 reviews
+          Bekijk alle 7 Google reviews
         </a>
       </div>
     </div>
@@ -764,16 +794,16 @@
 
   <!-- ═══ FULL IMAGE FEATURE ═══ -->
   <section class="feature-section" style="position:relative; height:640px; overflow:hidden;">
-    <img src="Images/Bruiloft3.jpg" alt="Trouwkoppel" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 50%; filter:brightness(0.5);">
-    <div class="feature-overlay" style="position:absolute; inset:0; background:linear-gradient(to right, rgba(13,11,8,0.95) 0%, rgba(13,11,8,0.85) 22%, rgba(13,11,8,0.1) 44%, transparent 58%);"></div>
+    <img src="ImgSweetSeasons/fotoshoot-natuur-achtergrond-harderwijk.png" alt="Fotoshoot op locatie in de natuur — Sweet Seasons Fotografie Harderwijk" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 50%; filter:brightness(0.5);">
+    <div class="feature-overlay" style="position:absolute; inset:0; background:linear-gradient(to right, rgba(45,24,32,0.95) 0%, rgba(45,24,32,0.85) 22%, rgba(45,24,32,0.10) 44%, transparent 58%);"></div>
     <div style="position:absolute; inset:0; display:flex; align-items:center;">
       <div class="feature-inner" style="max-width:1280px; margin:0 auto; width:100%; padding:0 40px;">
         <span class="section-label" style="display:block; margin-bottom:16px;">De beleving</span>
-        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem); font-weight:600; line-height:1.15; max-width:420px; margin-bottom:28px;">
-          Momenten vastgelegd,<br>voor <span style="color:var(--orange);">altijd</span>
+        <h2 class="font-display" style="font-size:clamp(2rem,4vw,3.5rem); font-weight:600; line-height:1.15; max-width:420px; margin-bottom:28px; color:#FFF5F5;">
+          Momenten vastgelegd,<br>voor <span style="color:var(--pink-light);">altijd</span>
         </h2>
-        <p style="color:var(--text-muted); font-size:0.95rem; max-width:380px; line-height:1.8; margin-bottom:36px;">
-          Van een newbornshoot thuis tot een gezinsshoot buiten — Sam is er. Met oog voor elk detail, de rust van een professional, en het hart voor jouw verhaal.
+        <p style="color:rgba(255,245,245,0.75); font-size:0.95rem; max-width:380px; line-height:1.8; margin-bottom:36px;">
+          Van een gezinsshoot bij bloesembomen tot een portretshoot in het herfstbos — Lory is er. Met oog voor elk detail, de warmte van een vrouwelijke ondernemer, en een sprookjesachtige nabewerking.
         </p>
         <a href="#contact" class="btn-orange">Plan een shoot</a>
       </div>
@@ -790,41 +820,41 @@
           Zullen we kennismaken?
         </h2>
         <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; margin-bottom:48px;">
-          Vertel me over jouw shoot. Stuur een bericht of bel gerust — Sam reageert snel en denkt graag met je mee over wat jij nodig hebt.
+          Vertel me over jouw shoot. Stuur een bericht of mail gerust — Lory reageert snel en denkt graag met je mee over wat jij nodig hebt.
         </p>
         <!-- Contact info -->
         <div style="display:flex; flex-direction:column; gap:20px;">
           <div style="display:flex; align-items:center; gap:16px;">
-            <div style="width:44px; height:44px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--orange);">
+            <div style="width:44px; height:44px; border:1px solid var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--pink);">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006.29 6.29l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.18v1.74z"/>
               </svg>
             </div>
             <div>
-              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Telefoon</div>
-              <a href="tel:0649014658" style="font-size:0.9rem; color:var(--text); text-decoration:none;">06 49 01 46 58</a>
+              <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Website</div>
+              <a href="https://sweetseasonsfotografie.nl" target="_blank" rel="noopener" style="font-size:0.9rem; color:var(--text); text-decoration:none;">sweetseasonsfotografie.nl</a>
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:16px;">
-            <div style="width:44px; height:44px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--orange);">
+            <div style="width:44px; height:44px; border:1px solid var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--pink);">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
               </svg>
             </div>
             <div>
               <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">E-mail</div>
-              <a href="mailto:Fotovansam@gmail.com" style="font-size:0.9rem; color:var(--text); text-decoration:none;">Fotovansam@gmail.com</a>
+              <a href="mailto:info@sweetseasonsfotografie.nl" style="font-size:0.9rem; color:var(--text); text-decoration:none;">info@sweetseasonsfotografie.nl</a>
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:16px;">
-            <div style="width:44px; height:44px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--orange);">
+            <div style="width:44px; height:44px; border:1px solid var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--pink);">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
             </div>
             <div>
               <div style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Locatie</div>
-              <div style="font-size:0.9rem;">Bedrijvenpark Twente 147o, 7602 KE Almelo</div>
+              <div style="font-size:0.9rem;">Klavermeen, 3844 PP Harderwijk</div>
             </div>
           </div>
         </div>
@@ -853,11 +883,11 @@
           </div>
           <div>
             <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Gewenste datum</label>
-            <input type="date" class="form-input" style="color-scheme:dark;" autocomplete="off">
+            <input type="date" class="form-input" style="color-scheme:light;" autocomplete="off">
           </div>
           <div>
             <label style="display:block; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Bericht</label>
-            <textarea placeholder="Vertel ons over jullie trouwdag..." class="form-input" rows="4" style="resize:vertical; min-height:120px;"></textarea>
+            <textarea placeholder="Vertel mij over jullie shoot..." class="form-input" rows="4" style="resize:vertical; min-height:120px;"></textarea>
           </div>
           <button type="submit" class="btn-orange" style="margin-top:8px; width:100%; text-align:center;">Verstuur aanvraag</button>
         </form>
@@ -873,23 +903,23 @@
         <!-- Brand -->
         <div class="footer-brand">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
-            <div style="width:28px; height:28px; border:1.5px solid var(--orange); display:flex; align-items:center; justify-content:center;">
-              <div style="width:10px; height:10px; background:var(--orange);"></div>
+            <div style="width:28px; height:28px; border:1.5px solid var(--pink); border-radius:6px; display:flex; align-items:center; justify-content:center;">
+              <div style="width:10px; height:10px; background:var(--pink); border-radius:2px;"></div>
             </div>
-            <span class="font-display" style="font-size:0.95rem; font-weight:600; color:var(--text); letter-spacing:0.08em;">fotovansam</span>
+            <span class="font-display" style="font-size:0.95rem; font-weight:600; color:var(--text); letter-spacing:0.08em;">Sweet Seasons Fotografie</span>
           </div>
           <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.8; max-width:260px;">
-            Newborn-, zwangerschaps- en gezinsfotografie met rust, geduld en oog voor elk detail. Foto's binnen 7 dagen bewerkt en klaar. Almelo &amp; omgeving.
+            Ongedwongen, gezellige fotoshoots op mooie locaties in de natuur. Gezin, newborn, zwangerschap, kinderen &amp; meer. Harderwijk &amp; omgeving.
           </p>
           <!-- Social -->
           <div style="display:flex; gap:12px; margin-top:24px;">
-            <a href="#" aria-label="Instagram" style="width:44px; height:44px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+            <a href="https://www.instagram.com/sweet_seasons_fotografie" target="_blank" rel="noopener" aria-label="Instagram" style="width:44px; height:44px; border:1px solid var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--pink)';this.style.color='var(--pink)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="#" aria-label="Facebook" style="width:44px; height:44px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+            <a href="#" aria-label="Facebook" style="width:44px; height:44px; border:1px solid var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--pink)';this.style.color='var(--pink)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="#" aria-label="TikTok" style="width:44px; height:44px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
+            <a href="#" aria-label="TikTok" style="width:44px; height:44px; border:1px solid var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color 0.2s,color 0.2s; text-decoration:none;" onmouseover="this.style.borderColor='var(--pink)';this.style.color='var(--pink)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.22 8.22 0 004.86 1.56V6.78a4.85 4.85 0 01-1.09-.09z"/></svg>
             </a>
           </div>
@@ -898,38 +928,38 @@
         <div>
           <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:20px;">Diensten</div>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Newbornshoot</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Zwangerschapsshoot</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Gezinsshoot</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Workshop fotografie</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Shoot op locatie</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Newbornshoot</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Zwangerschapsshoot</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Gezinsshoot</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Workshop fotografie</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Shoot op locatie</a>
           </div>
         </div>
         <!-- Links 2 -->
         <div>
           <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:20px;">Studio</div>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <a href="#about" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Over Sam</a>
-            <a href="#portfolio" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Portfolio</a>
-            <a href="#testimonials" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Recensies</a>
-            <a href="#contact" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Contact</a>
+            <a href="#about" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Over Lory</a>
+            <a href="#portfolio" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Portfolio</a>
+            <a href="#testimonials" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Recensies</a>
+            <a href="#contact" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Contact</a>
           </div>
         </div>
         <!-- Links 3 -->
         <div>
           <div style="font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); margin-bottom:20px;">Info</div>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Tarieven</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Veelgestelde vragen</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Blog</a>
-            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Privacybeleid</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Tarieven</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Veelgestelde vragen</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Blog</a>
+            <a href="#" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; display:block; padding:2px 0;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--text-muted)'">Privacybeleid</a>
           </div>
         </div>
       </div>
       <!-- Bottom row -->
       <div class="footer-bottom" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div style="font-size:0.78rem; color:var(--text-muted);">© 2024 fotovansam. Alle rechten voorbehouden.</div>
-        <div style="font-size:0.78rem; color:var(--text-muted);">Fotografie &middot; Almelo &amp; omgeving</div>
+        <div style="font-size:0.78rem; color:var(--text-muted);">© 2025 Sweet Seasons Fotografie. Alle rechten voorbehouden.</div>
+        <div style="font-size:0.78rem; color:var(--text-muted);">Fotografie &middot; Harderwijk &amp; omgeving</div>
       </div>
     </div>
   </footer>
@@ -938,10 +968,10 @@
   // ── Carousel ──
   (function(){
     var slides=[
-      {title:'Geduld & rust',sub:'Jouw moment, haar prioriteit',desc:'Sam neemt écht de tijd voor jou en je gezin. Of je baby nu onrustig is of moeilijk in slaap te krijgen — ze gaat liefdevol en kalm te werk totdat alles perfect is.',detail:'Klanten omschrijven haar als spontaan, rustig en met echt oog voor ieder detail. Geen haast, geen stress — alleen aandacht voor jou.',accent:'#C97B14',img:'Images/Bruiloft1.jpg'},
-      {title:'Foto\'s binnen 7 dagen',sub:'Snel geleverd, prachtig bewerkt.',desc:'Na de shoot hoef je niet lang te wachten. Gemiddeld binnen 7 dagen zijn de foto\'s zorgvuldig bewerkt en klaar — zodat je er snel van kunt genieten en ze kunt delen.',detail:'"De bewerking en nalevering van de foto\'s was super snel." Dat zeggen onze klanten — en daar zijn we trots op.',accent:'#B8895A',img:'Images/Bruiloft2.jpg',imgPos:'30% center'},
-      {title:'Newborn expertise',sub:'Kundig met de allerkleinsten.',desc:'Sam heeft veel ervaring met pasgeborenen. Ze weet precies hoe ze babies veilig en comfortabel kan positioneren, en wacht geduldig op het juiste moment.',detail:'Onze klanten vertrouwen haar volledig met hun pasgeboren kindje — en dat vertrouwen maakt ze elke keer weer waar.',accent:'#D4A055',img:'Images/Bruiloft4.jpg',imgPos:'50% 20%'},
-      {title:'Op locatie of in studio',sub:'Flexibel, overal beschikbaar.',desc:'Sam werkt zowel op locatie als in een studioomgeving. Van jouw eigen huis tot een prachtige buitenlocatie in Almelo en omgeving — ze past zich aan jouw wensen aan.',detail:'Gevestigd op Bedrijvenpark Twente 147o in Almelo, maar ook bij jou thuis. 24/7 bereikbaar voor vragen en planning.',accent:'#C97B14',img:'Images/Bruiloft6.jpg'}
+      {title:'Geduld & warmte',sub:'De kinderen voelen zich op hun gemak',desc:'Lory neemt écht de tijd voor jou en je gezin. De kinderen voelen zich op hun gemak, de sfeer is ontspannen — en dat zie je terug in elk beeld.',detail:'"Lory neemt de tijd, de kinderen voelde zich op hun gemak en de foto\'s zijn echt prachtig!" — Rebecca Bremer',accent:'#D4607A',img:'ImgSweetSeasons/newbornshoot-fotograaf-harderwijk.png'},
+      {title:'Sprookjesachtige sfeer',sub:'Prachtige nabewerking in alle seizoenen',desc:'Na de shoot wacht je op beelden met een warme, sprookjesachtige nabewerking. Lory\'s bewerkingsstijl is uniek — zacht, kleurrijk en vol sfeer.',detail:'"Nabewerking met een prachtige, sprookjesachtige sfeer. Enorm blij met de shoot en het resultaat." — Shirley D',accent:'#C4566E',img:'ImgSweetSeasons/zwangerschapsshoot-fotograaf-harderwijk.png',imgPos:'30% center'},
+      {title:'Alle seizoenen, alle locaties',sub:'Op mooie plekken in de natuur',desc:'Sweet Seasons staat voor fotografie in alle seizoenen — bloesem in de lente, warmte in de zomer, kleur in de herfst, rust in de winter. Steeds op een prachtige locatie in de natuur.',detail:'Lory zoekt zelf de mooiste locaties op — van bloesembomen tot herfstbossen. Gevestigd in Harderwijk, actief door heel de regio.',accent:'#E8728A',img:'ImgSweetSeasons/gezinsshoot-alle-seizoenen-harderwijk.png',imgPos:'50% 20%'},
+      {title:'Gezin, newborn & kinderen',sub:'Voor elk bijzonder moment.',desc:'Van een zwangerschapsshoot tot een gezinsportret met de allerkleinsten — Lory is er voor alle bijzondere momenten in het leven van jouw gezin.',detail:'"Top fotograaf, wij voelde ons helemaal op ons gemak. Prachtige foto\'s, grote aanrader!" — Danielle Andringa',accent:'#D4607A',img:'ImgSweetSeasons/kinderen-newborn-gezinsshoot-harderwijk.png'}
     ];
     var DURATION=6000,TRANS=400;
     var cur=0,transitioning=false,progress=0,paused=false,timer=null,ptimer=null;
@@ -1061,6 +1091,69 @@
       if(e.key==='Escape')closeNav();
     });
   })();
+  </script>
+
+  <!-- Structured Data: LocalBusiness + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://portfoliosample-orcin.vercel.app/#business",
+        "name": "Sweet Seasons Fotografie",
+        "description": "Ongedwongen, gezellige fotoshoots op mooie locaties in de natuur. Gespecialiseerd in gezins-, newborn-, zwangerschaps- en kindershoots in Harderwijk en omgeving.",
+        "url": "https://portfoliosample-orcin.vercel.app",
+        "logo": "https://portfoliosample-orcin.vercel.app/ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png",
+        "image": "https://portfoliosample-orcin.vercel.app/ImgSweetSeasons/hero-sweet-seasons-fotografie-harderwijk.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Klavermeen",
+          "addressLocality": "Harderwijk",
+          "postalCode": "3844 PP",
+          "addressCountry": "NL"
+        },
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.3411,
+            "longitude": 5.6239
+          },
+          "geoRadius": "50000"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "7",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "sameAs": [
+          "https://www.instagram.com/sweet_seasons_fotografie"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Fotoshoot diensten",
+          "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Newbornshoot op locatie"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Zwangerschapsshoot"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gezinsshoot in de natuur"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kindershoot op locatie"}}
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://portfoliosample-orcin.vercel.app/#lory",
+        "name": "Lory van de Fliert",
+        "jobTitle": "Fotografe",
+        "worksFor": {"@id": "https://portfoliosample-orcin.vercel.app/#business"},
+        "image": "https://portfoliosample-orcin.vercel.app/ImgSweetSeasons/lory-van-de-fliert-fotografe-harderwijk.png",
+        "sameAs": ["https://www.instagram.com/sweet_seasons_fotografie"]
+      }
+    ]
+  }
   </script>
 </body>
 </html>
